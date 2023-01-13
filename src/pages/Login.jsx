@@ -7,12 +7,13 @@ export default function Login () {
 
   useEffect(() => {
     const session = getSession()
-    if (session.value) navigate('/')
+    if (session) navigate('/')
+    console.log(session)
   }, [navigate])
 
   const getSession = async () => {
     const { data, error } = await supabase.auth.getSession()
-    return data.session
+    return data.session.access_token
   }
 
   const [email, setEmail] = useState('')
@@ -21,7 +22,10 @@ export default function Login () {
     e.preventDefault()
 
     const { data, error } = await supabase.auth.signInWithOtp({
-      email
+      email,
+      options: {
+        emailRedirectTo: 'http://localhost:5173/'
+      }
     })
     console.log(data, error)
   }
