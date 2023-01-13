@@ -7,14 +7,12 @@ export default function Home () {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const session = getSession()
-    if (!session) navigate('/login')
-    console.log(session)
+    getUser()
   }, [navigate])
 
-  const getSession = async () => {
-    const { data, error } = await supabase.auth.getSession()
-    return data.session.access_token
+  const getUser = async () => {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) navigate('/login')
   }
 
   return (

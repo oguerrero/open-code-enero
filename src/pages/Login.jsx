@@ -6,14 +6,13 @@ export default function Login () {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const session = getSession()
-    if (session) navigate('/')
-    console.log(session)
+    getUser()
   }, [navigate])
 
-  const getSession = async () => {
-    const { data, error } = await supabase.auth.getSession()
-    return data.session.access_token
+  const getUser = async () => {
+    const { data: { user } } = await supabase.auth.getUser()
+    console.log(user)
+    if (user) navigate('/')
   }
 
   const [email, setEmail] = useState('')
