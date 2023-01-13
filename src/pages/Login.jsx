@@ -1,7 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabase/client'
 
-export default function Login() {
+export default function Login () {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const session = getSession()
+    if (session.value) navigate('/')
+  }, [navigate])
+
+  const getSession = async () => {
+    const { data, error } = await supabase.auth.getSession()
+    return data.session
+  }
+
   const [email, setEmail] = useState('')
 
   const handleSubmit = async (e) => {
@@ -15,12 +28,12 @@ export default function Login() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={ handleSubmit }>
         <input
           type='email'
           name='email'
           placeholder='youremail@site.com'
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={ (e) => setEmail(e.target.value) }
         />
         <button>Send</button>
       </form>
