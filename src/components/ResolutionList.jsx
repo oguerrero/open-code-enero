@@ -1,20 +1,25 @@
 import { useEffect } from 'react'
 import { useResolution } from '../context/ResolutionContext'
+import ResolutionCard from './ResolutionCard'
 
 export default function ResolutionList() {
-  const { resolutions, getResolutions } = useResolution()
+  const { resolutions, getResolutions, loading } = useResolution()
 
   useEffect(() => {
     getResolutions()
   }, [])
 
+  if (loading) return <p>Loading...</p>
+
+  if (resolutions.length === 0) return <p>No tienes ningun proposito todavia</p>
+
   return (
     <div>
       {resolutions.map((resolution) => (
-        <div key={resolution.id}>
-          <h1>{resolution.name}</h1>
-          <p>{JSON.stringify(resolution.done)}</p>
-        </div>
+        <ResolutionCard
+          key={resolution.id}
+          resolution={resolution}
+        />
       ))}
     </div>
   )
