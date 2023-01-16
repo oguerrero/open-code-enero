@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+import { ResolutionContextProvider } from './context/ResolutionContext'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
@@ -16,20 +17,22 @@ export default function App() {
 
   return (
     <div>
-      <Routes>
-        <Route
-          path='/'
-          element={<Home />}
-        />
-        <Route
-          path='/login'
-          element={<Login />}
-        />
-        <Route
-          path='*'
-          element={<NotFound />}
-        />
-      </Routes>
+      <ResolutionContextProvider>
+        <Routes>
+          <Route
+            path='/'
+            element={<Home />}
+          />
+          <Route
+            path='/login'
+            element={<Login />}
+          />
+          <Route
+            path='*'
+            element={<NotFound />}
+          />
+        </Routes>
+      </ResolutionContextProvider>
     </div>
   )
 }
