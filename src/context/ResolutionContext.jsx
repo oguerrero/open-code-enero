@@ -15,6 +15,7 @@ export const useResolution = () => {
 
 export const ResolutionContextProvider = ({ children }) => {
   const [resolutions, setResolutions] = useState([])
+  const [adding, setAdding] = useState(false)
 
   const getResolutions = async (done = false) => {
     const {
@@ -33,8 +34,25 @@ export const ResolutionContextProvider = ({ children }) => {
     setResolutions(data)
   }
 
+  const addResolution = async (resolutionName) => {
+    setAdding(true)
+    const {
+      data: { user }
+    } = await supabase.auth.getUser()
+
+    const { error } = await supabase
+      .from('resolutions')
+      .insert({ name: resolutionName, userId: user.id })
+
+    if (error) throw error
+
+    getResolutions()
+    setAdding(false)
+  }
+
   return (
-    <ResolutionContext.Provider value={{ resolutions, getResolutions }}>
+    <ResolutionContext.Provider
+      value={{ resolutions, getResolutions, addResolution, adding }}>
       {children}
     </ResolutionContext.Provider>
   )

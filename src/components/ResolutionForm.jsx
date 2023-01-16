@@ -1,19 +1,15 @@
 import { useState } from 'react'
-import { supabase } from '../supabase/client'
+import { useResolution } from '../context/ResolutionContext'
 
 export default function ResolutionForm () {
   const [resolutionName, setResolutionName] = useState('')
+  const { addResolution, adding } = useResolution()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const { data: { user } } = await supabase.auth.getUser()
-
-    const { error } = await supabase
-      .from('resolutions')
-      .insert({ name: resolutionName, userId: user.id })
-
-    console.log(error)
+    addResolution(resolutionName)
+    setResolutionName('')
   }
 
   return (
@@ -24,8 +20,9 @@ export default function ResolutionForm () {
           name='resolutionName'
           placeholder='Escribe tu proposito'
           onChange={ (e) => setResolutionName(e.target.value) }
+          value={ resolutionName }
         />
-        <button>Añadir</button>
+        <button disabled={ adding }>{ adding ? 'Añadiendo...' : 'Añadir' }</button>
       </form>
     </div>
   )

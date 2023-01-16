@@ -3,7 +3,6 @@ import { useResolution } from '../context/ResolutionContext'
 
 export default function ResolutionList() {
   const { resolutions, getResolutions } = useResolution()
-  console.log(resolutions)
 
   useEffect(() => {
     getResolutions()
