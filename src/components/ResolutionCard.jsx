@@ -1,6 +1,10 @@
+import { useResolution } from '../context/ResolutionContext'
+
 export default function ResolutionCard({ resolution }) {
+  const { deleteResolution } = useResolution()
+
   const handleDelete = () => {
-    alert('borrando')
+    deleteResolution(resolution.id)
   }
 
   const handleDone = () => {
