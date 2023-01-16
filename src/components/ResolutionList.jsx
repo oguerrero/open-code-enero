@@ -14,7 +14,7 @@ export default function ResolutionList({doneRender}) {
   if (resolutions.length === 0) return <p>No tienes ningun proposito todavia</p>
 
   return (
-    <div>
+    <div className='flex flex-col gap-4 justify-center items-center'>
       {resolutions.map((resolution) => (
         <ResolutionCard
           key={resolution.id}
