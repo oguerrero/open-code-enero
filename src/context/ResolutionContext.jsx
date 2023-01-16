@@ -53,7 +53,7 @@ export const ResolutionContextProvider = ({ children }) => {
     setAdding(false)
   }
 
-  const deleteResolution = async (id) => {
+  const deleteResolution = async (id, doneRender) => {
     setLoading(true)
     const {
       data: { user }
@@ -64,24 +64,35 @@ export const ResolutionContextProvider = ({ children }) => {
       .delete()
       .eq('id', id)
       .eq('user_id', user.id)
-    console.log(error)
 
     if (error) throw error
 
-    getResolutions()
+    getResolutions(doneRender)
+  }
+
+  const updateResolution = async (id, done, doneRender) => {
+    const { error } = await supabase
+      .from('resolutions')
+      .update({ done: done })
+      .eq('id', id)
+
+    if (error) throw error
+
+    getResolutions(doneRender)
   }
 
   return (
     <ResolutionContext.Provider
-      value={{
+      value={ {
         resolutions,
         getResolutions,
         addResolution,
         deleteResolution,
+        updateResolution,
         adding,
         loading
-      }}>
-      {children}
+      } }>
+      { children }
     </ResolutionContext.Provider>
   )
 }

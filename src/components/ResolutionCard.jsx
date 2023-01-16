@@ -1,15 +1,11 @@
 import { useResolution } from '../context/ResolutionContext'
 
-export default function ResolutionCard({ resolution }) {
-  const { deleteResolution } = useResolution()
+export default function ResolutionCard({ resolution, doneRender }) {
+  const { deleteResolution, updateResolution } = useResolution()
 
-  const handleDelete = () => {
-    deleteResolution(resolution.id)
-  }
+  const handleDelete = () => deleteResolution(resolution.id, doneRender)
 
-  const handleDone = () => {
-    alert('terminando')
-  }
+  const handleDone = () => updateResolution(resolution.id, !resolution.done, doneRender)
 
   return (
     <div>
