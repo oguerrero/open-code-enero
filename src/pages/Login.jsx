@@ -11,7 +11,6 @@ export default function Login () {
 
   const getUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
-    console.log(user)
     if (user) navigate('/')
   }
 
@@ -26,7 +25,6 @@ export default function Login () {
         emailRedirectTo: 'http://localhost:5173/'
       }
     })
-    console.log(data, error)
   }
 
   return (

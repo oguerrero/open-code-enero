@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import TaskForm from '../components/TaskForm'
+import ResolutionForm from '../components/ResolutionForm'
 import { supabase } from '../supabase/client'
 
 export default function Home () {
@@ -20,7 +20,7 @@ export default function Home () {
       <h1>Home</h1>
       <button onClick={ () => supabase.auth.signOut() }>Sign Out</button>
 
-      <TaskForm />
+      <ResolutionForm />
     </div>
   )
 }
