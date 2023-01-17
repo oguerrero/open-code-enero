@@ -26,6 +26,7 @@ export default function ResolutionForm() {
           onChange={(e) => setResolutionName(e.target.value)}
           value={resolutionName}
           required
+          maxLength='50'
         />
         <button
           disabled={adding}
