@@ -8,6 +8,7 @@ export default function ResolutionForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    if (resolutionName)
     addResolution(resolutionName)
     setResolutionName('')
   }
@@ -24,6 +25,7 @@ export default function ResolutionForm() {
           className='px-4 py-2 bg-zinc-200'
           onChange={(e) => setResolutionName(e.target.value)}
           value={resolutionName}
+          required
         />
         <button
           disabled={adding}
