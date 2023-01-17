@@ -40,7 +40,7 @@ export default function Login() {
 
   return (
     <div className='px-12 py-16 flex flex-col gap-8 justify-center items-center'>
-      <div className='w-96'>
+      <div className='sm:w-96'>
         <h1 className='mb-4 text-xl font-semibold text-center'>
           Iniciar Sesión con MagicLink
         </h1>
@@ -59,7 +59,7 @@ export default function Login() {
           </button>
         </form>
       </div>
-      <div className='flex flex-col gap-4 w-96'>
+      <div className='flex flex-col gap-4 sm:w-96'>
         <h1 className='mb-4 text-xl font-semibold text-center'>
           Iniciar Sesión con Proveedores
         </h1>
@@ -82,7 +82,6 @@ export default function Login() {
           className='rounded py-2 m-1 border-2 shadow-lg bg-white border-zinc-800 text-black font-bold text-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            class='inline w-4 h-4 mr-3 text-gray-900 fill-current'
             viewBox='0 0 48 48'
             role='img'
             className='w-7 h-7 text-white fill-current text-center inline-block mr-4'>

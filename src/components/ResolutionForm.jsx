@@ -1,20 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useResolution } from '../context/ResolutionContext'
+import { supabase } from '../supabase/client'
+import NavComponent from './NavComponent'
 
 export default function ResolutionForm() {
+  const navigate = useNavigate()
   const [resolutionName, setResolutionName] = useState('')
   const { addResolution, adding } = useResolution()
+
+  useEffect(() => {
+    getUser()
+  }, [navigate])
+
+  const getUser = async () => {
+    const {
+      data: { user }
+    } = await supabase.auth.getUser()
+    if (!user) navigate('/login')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (resolutionName)
-    addResolution(resolutionName)
+    if (resolutionName) addResolution(resolutionName)
     setResolutionName('')
+    navigate('/')
   }
 
   return (
-    <div>
+    <div className='px-8 py-8'>
       <form
         onSubmit={handleSubmit}
         className='flex flex-col gap-4 sm:flex-row'>
@@ -34,6 +49,8 @@ export default function ResolutionForm() {
           {adding ? 'Añadiendo...' : 'Añadir'}
         </button>
       </form>
+      <NavComponent />
+
     </div>
   )
 }

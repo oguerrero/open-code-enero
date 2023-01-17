@@ -18,7 +18,7 @@ export const ResolutionContextProvider = ({ children }) => {
   const [adding, setAdding] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const getResolutions = async (done = false) => {
+  const getResolutions = async () => {
     setLoading(true)
     const {
       data: { user }
@@ -28,8 +28,7 @@ export const ResolutionContextProvider = ({ children }) => {
       .from('resolutions')
       .select()
       .eq('user_id', user.id)
-      .eq('done', done)
-      .order('id', { ascending: true })
+      .order('id', { ascending: false })
 
     if (error) throw error
 
@@ -53,7 +52,7 @@ export const ResolutionContextProvider = ({ children }) => {
     setAdding(false)
   }
 
-  const deleteResolution = async (id, doneRender) => {
+  const deleteResolution = async (id) => {
     setLoading(true)
     const {
       data: { user }
@@ -67,10 +66,10 @@ export const ResolutionContextProvider = ({ children }) => {
 
     if (error) throw error
 
-    getResolutions(doneRender)
+    getResolutions()
   }
 
-  const updateResolution = async (id, done, doneRender) => {
+  const updateResolution = async (id, done) => {
     const { error } = await supabase
       .from('resolutions')
       .update({ done: done })
@@ -78,7 +77,7 @@ export const ResolutionContextProvider = ({ children }) => {
 
     if (error) throw error
 
-    getResolutions(doneRender)
+    getResolutions()
   }
 
   return (
