@@ -28,7 +28,7 @@ export default function ResolutionForm() {
   }
 
   return (
-    <div className='w-full sm:max-w-xl transition-all duration-500 ease-in-out px-4'>
+    <div className='w-full sm:max-w-xl transition-all duration-500 ease-in-out px-4 sm:px-0'>
       <div className='flex flex-row justify-between'>
         <div className='flex items-center w-full'>
           <input
