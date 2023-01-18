@@ -1,16 +1,7 @@
-import LoadingCard from './LoadingCard'
-
 export default function LoadingComponent() {
   return (
-    <div className='border shadow rounded-md p-4 max-w-md w-full mx-auto flex flex-col gap-2'>
-      <LoadingCard />
-      <LoadingCard />
-      <LoadingCard />
-      <LoadingCard />
-      <LoadingCard />
-      <LoadingCard />
-      <LoadingCard />
-      <LoadingCard />
+    <div className='absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
+      <div className='border-t-transparent border-solid animate-spin  rounded-full border-indigo-600 border-8 h-64 w-64'></div>
     </div>
   )
 }

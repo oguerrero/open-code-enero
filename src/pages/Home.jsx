@@ -21,19 +21,14 @@ export default function Home() {
 
   return (
     <div className='flex flex-col min-h-screen gap-4 py-4'>
-      <nav className='flex flex-row items-center justify-center gap-8 px-4'>
-        <h1 className='font-bold text-center text-xl sm:text-3xl'>
-          Propositos Año Nuevo 2023
+      <nav className='flex flex-row items-center justify-center gap-8 px-4 shadow-lg pb-2'>
+        <h1 className='text-xl font-bold text-center sm:text-3xl'>
+          Mis Propositos de Año Nuevo
         </h1>
         <div className='hidden sm:flex sm:absolute sm:right-8 sm:gap-8'>
           <button
-            onClick={() => navigate('/add')}
-            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-indigo-700 hover:bg-purple-500'>
-            Agregar
-          </button>
-          <button
             onClick={() => supabase.auth.signOut()}
-            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-red-600  hover:bg-orange-500'>
+            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-red-600 rounded hover:shadow-orange-500 hover:shadow-lg hover:bg-orange-500'>
             Cerrar Sesión
           </button>
         </div>

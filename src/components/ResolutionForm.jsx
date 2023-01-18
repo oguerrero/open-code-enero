@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useResolution } from '../context/ResolutionContext'
 import { supabase } from '../supabase/client'
-import NavComponent from './NavComponent'
 
 export default function ResolutionForm() {
   const navigate = useNavigate()
@@ -29,28 +28,29 @@ export default function ResolutionForm() {
   }
 
   return (
-    <div className='px-8 py-8'>
-      <form
-        onSubmit={handleSubmit}
-        className='flex flex-col gap-4 sm:flex-row'>
-        <input
-          type='text'
-          name='resolutionName'
-          placeholder='Escribe tu proposito'
-          className='px-4 py-2 bg-zinc-200'
-          onChange={(e) => setResolutionName(e.target.value)}
-          value={resolutionName}
-          required
-          maxLength='50'
-        />
-        <button
-          disabled={adding}
-          className='px-4 py-2 font-bold text-white bg-red-600 sm:absolute sm:right-8'>
-          {adding ? 'Añadiendo...' : 'Añadir'}
-        </button>
-      </form>
-      <NavComponent />
-
+    <div className='w-full sm:max-w-xl transition-all duration-500 ease-in-out px-4'>
+      <div className='flex flex-row justify-between'>
+        <div className='flex items-center w-full'>
+          <input
+            type='text'
+            name='resolutionName'
+            placeholder='Escribe tu proposito'
+            className='px-4 py-2 bg-zinc-200 w-11/12'
+            onChange={(e) => setResolutionName(e.target.value)}
+            value={resolutionName}
+            required
+            maxLength='25'
+          />
+        </div>
+        <div className='flex justify-center items-center my-2'>
+          <button
+            disabled={adding}
+            onClick={(e) => handleSubmit(e)}
+            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-indigo-700 rounded text-lg hover:shadow-purple-600 hover:shadow-lg hover:bg-purple-500'>
+            {adding ? 'Añadiendo...' : 'Añadir'}
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

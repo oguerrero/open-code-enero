@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import ResolutionForm from './components/ResolutionForm'
+import ProgressComponent from './components/ProgressComponent'
+import SettingsComponent from './components/SettingsComponent'
 import { ResolutionContextProvider } from './context/ResolutionContext'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -29,8 +30,12 @@ export default function App() {
             element={<Login />}
           />
           <Route
-            path='/add'
-            element={<ResolutionForm />}
+            path='/progress'
+            element={<ProgressComponent />}
+          />
+          <Route
+            path='/settings'
+            element={<SettingsComponent />}
           />
           <Route
             path='*'

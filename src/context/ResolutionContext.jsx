@@ -77,7 +77,6 @@ export const ResolutionContextProvider = ({ children }) => {
 
     if (error) throw error
 
-    getResolutions()
   }
 
   return (
