@@ -1,15 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import ProgressComponent from './components/ProgressComponent'
-import SettingsComponent from './components/SettingsComponent'
+import { ModeContextProvider } from './context/ModeContext'
 import { ResolutionContextProvider } from './context/ResolutionContext'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
+import Progress from './pages/Progress'
+import Settings from './pages/Settings'
 import { supabase } from './supabase/client'
 
 export default function App() {
   const navigate = useNavigate()
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
@@ -20,28 +22,30 @@ export default function App() {
   return (
     <div>
       <ResolutionContextProvider>
-        <Routes>
-          <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
-            path='/login'
-            element={<Login />}
-          />
-          <Route
-            path='/progress'
-            element={<ProgressComponent />}
-          />
-          <Route
-            path='/settings'
-            element={<SettingsComponent />}
-          />
-          <Route
-            path='*'
-            element={<NotFound />}
-          />
-        </Routes>
+        <ModeContextProvider>
+          <Routes>
+            <Route
+              path='/'
+              element={<Home />}
+            />
+            <Route
+              path='/login'
+              element={<Login />}
+            />
+            <Route
+              path='/progress'
+              element={<Progress />}
+            />
+            <Route
+              path='/settings'
+              element={<Settings />}
+            />
+            <Route
+              path='*'
+              element={<NotFound />}
+            />
+          </Routes>
+        </ModeContextProvider>
       </ResolutionContextProvider>
     </div>
   )
