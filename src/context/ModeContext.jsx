@@ -11,12 +11,20 @@ export const useMode = () => {
 }
 
 export const ModeContextProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
-  const toogleMode = () => setDarkMode(!darkMode)
+  const getMode = () => {
+    const savedMode = localStorage.getItem('darkMode')
+    setDarkMode(savedMode)
+  }
+
+  const toogleMode = () => {
+    setDarkMode(!darkMode)
+    localStorage.setItem('darkMode', darkMode)
+  }
 
   return (
-    <ModeContext.Provider value={{ darkMode, toogleMode }}>
+    <ModeContext.Provider value={{ darkMode, toogleMode, getMode }}>
       {children}
     </ModeContext.Provider>
   )

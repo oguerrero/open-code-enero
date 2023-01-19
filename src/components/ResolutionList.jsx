@@ -4,12 +4,12 @@ import LoadingComponent from './LoadingComponent'
 import ResolutionCard from './ResolutionCard'
 import ResolutionForm from './ResolutionForm'
 
-export default function ResolutionList({ doneRender }) {
+export default function ResolutionList() {
   const { resolutions, getResolutions, loading } = useResolution()
 
   useEffect(() => {
-    getResolutions(doneRender)
-  }, [doneRender])
+    getResolutions()
+  }, [])
 
   if (loading) return <LoadingComponent />
 

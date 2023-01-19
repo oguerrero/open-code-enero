@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabase/client'
 import ResolutionList from '../components/ResolutionList'
@@ -7,12 +7,12 @@ import NavComponent from '../components/NavComponent'
 import { useMode } from '../context/ModeContext'
 
 export default function Home() {
-  const [showDoneResolutions, setShowDoneResolutions] = useState(false)
-  const { darkMode } = useMode()
+  const { darkMode, getMode } = useMode()
   const navigate = useNavigate()
 
   useEffect(() => {
     getUser()
+    getMode()
   }, [navigate])
 
   const getUser = async () => {
@@ -28,9 +28,9 @@ export default function Home() {
         darkMode ? 'dark bg-zinc-800 text-white' : ''
       }`}>
       <NavComponent />
-
-      <ResolutionList doneRender={showDoneResolutions} />
-      <MobileNavComponent />
+      <h1 className='text-center text-2xl font-semibold'>Lista de Propositos</h1>
+      <ResolutionList  />
+      <MobileNavComponent location='home' />
     </div>
   )
 }
