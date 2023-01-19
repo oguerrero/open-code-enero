@@ -1,13 +1,20 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import { useResolution } from '../context/ResolutionContext'
 
 export default function ResolutionCard ({ resolution }) {
   const { deleteResolution, updateResolution } = useResolution()
   const [enabled, setEnabled] = useState(resolution.done)
 
-  const handleDelete = () => deleteResolution(resolution.id)
+  const handleDelete = () => {
+    deleteResolution(resolution.id)
+    toast.warn('Proposito Borrado')
+  } 
 
-  const handleDone = () => updateResolution(resolution.id, !resolution.done)
+  const handleDone = () => {
+    updateResolution(resolution.id, !resolution.done)
+    toast.info('Proposito Actualizado')
+  } 
 
   return (
     <div

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { supabase } from '../supabase/client'
 
 export default function Login() {
@@ -27,6 +28,7 @@ export default function Login() {
         emailRedirectTo: 'http://localhost:5173/'
       }
     })
+    toast.info('Tu enlace se ha enviado al correo')
   }
 
   const handleOAuth = async (provider) => {

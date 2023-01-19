@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { useResolution } from '../context/ResolutionContext'
 import { supabase } from '../supabase/client'
 
@@ -24,7 +25,7 @@ export default function ResolutionForm() {
 
     if (resolutionName) addResolution(resolutionName)
     setResolutionName('')
-    navigate('/')
+    toast.success('Proposito Agregado 🥳')
   }
 
   return (

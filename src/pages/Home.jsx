@@ -24,12 +24,14 @@ export default function Home() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen gap-4 py-4  ${
+      className={`flex flex-col min-h-screen gap-4 py-4 overflow-hidden  ${
         darkMode ? 'dark bg-zinc-800 text-white' : ''
       }`}>
       <NavComponent />
-      <h1 className='text-center text-2xl font-semibold'>Lista de Propositos</h1>
-      <ResolutionList  />
+      <h1 className='text-center text-2xl font-semibold'>
+        Lista de Propositos
+      </h1>
+      <ResolutionList />
       <MobileNavComponent location='home' />
     </div>
   )

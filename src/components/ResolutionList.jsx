@@ -14,7 +14,14 @@ export default function ResolutionList() {
   if (loading) return <LoadingComponent />
 
   if (resolutions.length === 0)
-    return <p>No tienes ningun proposito todavia 😱</p>
+    return (
+      <div className='flex flex-col sm:px-40 justify-center items-center'>
+        <ResolutionForm />
+        <p className='text-center text-xl'>
+          No tienes ningun proposito todavia 😱<br /> Agrega uno para comenzar tu travesía.
+        </p>
+      </div>
+    )
 
   return (
     <div className='flex flex-col sm:px-40 justify-center items-center'>

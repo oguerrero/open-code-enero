@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { ModeContextProvider } from './context/ModeContext'
 import { ResolutionContextProvider } from './context/ResolutionContext'
@@ -11,7 +11,6 @@ import { supabase } from './supabase/client'
 
 export default function App() {
   const navigate = useNavigate()
-  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
@@ -20,7 +19,7 @@ export default function App() {
   }, [])
 
   return (
-    <div>
+    <div className='min-h-screen overflow-hidden'>
       <ResolutionContextProvider>
         <ModeContextProvider>
           <Routes>
