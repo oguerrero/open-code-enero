@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import GraficaComponent from '../components/GraficaComponent'
 import MobileNavComponent from '../components/MobileNavComponent'
 import NavComponent from '../components/NavComponent'
 import ProgressComponent from '../components/ProgressComponent'
@@ -24,12 +25,14 @@ export default function Progress() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen gap-4 py-4  ${
+      className={`flex flex-col min-h-screen gap-4 py-4   ${
         darkMode ? 'dark bg-zinc-800 text-white' : ''
       }`}>
       <NavComponent />
+      <div className='flex items-center justify-center'>
+        <GraficaComponent />
+      </div>
 
-      <ProgressComponent />
       <MobileNavComponent location='progress' />
     </div>
   )

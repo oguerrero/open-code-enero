@@ -25,7 +25,7 @@ export default function NavComponent() {
         </label>
         <label
           className='hidden sm:flex cursor-pointer hover:bg-zinc-700 px-4 py-2 rounded-full transition-all duration-500 ease-in-out'
-          onClick={() => navigate('/progress')}>
+          onClick={() => navigate('/')}>
           Propositos
         </label>
         <label
