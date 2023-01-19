@@ -11,7 +11,7 @@ export default function ResolutionCard ({ resolution }) {
 
   return (
     <div
-      className={ `w-full sm:max-w-xl sm:w-4/5 transition-all duration-500 ease-in-out ${enabled ? 'bg-zinc-200' : 'bg-white dark:bg-zinc-800'}` }>
+      className={ `w-full sm:max-w-xl sm:w-4/5 transition-all duration-500 ease-in-out ${enabled ? 'bg-zinc-300' : 'bg-white dark:bg-zinc-800'}` }>
       <div className='flex flex-row justify-between py-2 pl-4 pr-2'>
         <button
           onClick={ () => handleDelete() }
@@ -19,7 +19,7 @@ export default function ResolutionCard ({ resolution }) {
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
-            fill='red'
+            fill='#FF3333'
             className='w-5 h-w-5'>
             <path
               fillRule='evenodd'
@@ -30,7 +30,7 @@ export default function ResolutionCard ({ resolution }) {
         </button>
         <div className='text-start justify-start items-start w-3/4'>
           <h2
-            className={ `text-start px-4 py-2 truncate font-semibold transition-all duration-500 ease-in-out ${enabled ? 'text-green-500 line-through' : 'text-black dark:text-white'
+            className={ `text-start px-4 py-2 truncate font-semibold transition-all duration-500 ease-in-out ${enabled ? 'text-green-500 line-through italic' : 'text-black dark:text-white'
               }` }>
             { resolution.name }
           </h2>

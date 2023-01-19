@@ -35,7 +35,7 @@ export default function ResolutionForm() {
             type='text'
             name='resolutionName'
             placeholder='Escribe tu proposito'
-            className='px-4 py-2 bg-zinc-200 w-11/12 dark:text-black rounded '
+            className='px-4 py-2 bg-zinc-200 w-11/12 dark:text-black rounded placeholder:italic '
             onChange={(e) => setResolutionName(e.target.value)}
             value={resolutionName}
             required
