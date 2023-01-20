@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import GraficaComponent from '../components/GraficaComponent'
 import MobileNavComponent from '../components/MobileNavComponent'
 import NavComponent from '../components/NavComponent'
-import ProgressComponent from '../components/ProgressComponent'
 import { useMode } from '../context/ModeContext'
 import { supabase } from '../supabase/client'
 
@@ -13,7 +12,6 @@ export default function Progress() {
 
   useEffect(() => {
     getUser()
-    getMode()
   }, [navigate])
 
   const getUser = async () => {

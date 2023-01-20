@@ -1,4 +1,4 @@
-export default function Moon() {
+export default function MoonIcon() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

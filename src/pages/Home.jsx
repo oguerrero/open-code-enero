@@ -7,12 +7,11 @@ import NavComponent from '../components/NavComponent'
 import { useMode } from '../context/ModeContext'
 
 export default function Home() {
-  const { darkMode, getMode } = useMode()
+  const { darkMode } = useMode()
   const navigate = useNavigate()
 
   useEffect(() => {
     getUser()
-    getMode()
   }, [navigate])
 
   const getUser = async () => {
