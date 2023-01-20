@@ -27,7 +27,7 @@ export default function Login() {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'https://resolutionsui.onrender.com/login'
+        emailRedirectTo: 'https://resolutionsui.onrender.com/'
       }
     })
     toast.info('Tu enlace se ha enviado al correo')
@@ -37,7 +37,7 @@ export default function Login() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        emailRedirectTo: 'https://resolutionsui.onrender.com/login'
+        emailRedirectTo: 'https://resolutionsui.onrender.com/'
       }
     })
   }
