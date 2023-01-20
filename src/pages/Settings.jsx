@@ -7,7 +7,7 @@ import { useMode } from '../context/ModeContext'
 import { supabase } from '../supabase/client'
 
 export default function Settings () {
-  const { darkMode, getMode } = useMode()
+  const { darkMode } = useMode()
   const navigate = useNavigate()
 
   useEffect(() => {

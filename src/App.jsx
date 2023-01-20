@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import { ModeContextProvider } from './context/ModeContext'
+import { useMode } from './context/ModeContext'
 import { ResolutionContextProvider } from './context/ResolutionContext'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -11,17 +11,19 @@ import { supabase } from './supabase/client'
 
 export default function App() {
   const navigate = useNavigate()
+  const { darkMode, getMode } = useMode()
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
       if (!session) navigate('/login')
     })
+    const savedMode = localStorage.getItem('darkMode')
+    getMode(savedMode)
   }, [])
 
   return (
     <div className='min-h-screen overflow-hidden'>
       <ResolutionContextProvider>
-        <ModeContextProvider>
           <Routes>
             <Route
               path='/'
@@ -44,7 +46,6 @@ export default function App() {
               element={<NotFound />}
             />
           </Routes>
-        </ModeContextProvider>
       </ResolutionContextProvider>
     </div>
   )
