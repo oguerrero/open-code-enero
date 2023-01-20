@@ -43,8 +43,11 @@ export default function Login() {
   }
 
   return (
-    <div className='px-12 py-16 flex flex-col gap-8 justify-center items-center'>
-      <div className='sm:w-96'>
+    <div className='px-12 flex flex-col gap-8 justify-center items-center'>
+      <div className='shadow-lg py-4 w-screen text-center'>
+        <h1 className='text-xl font-bold sm:text-3xl'>Resolutions-UI</h1>
+      </div>
+      <div className='sm:w-96 py-4'>
         <h1 className='mb-4 text-xl font-semibold text-center'>
           Iniciar Sesión con MagicLink
         </h1>
@@ -56,7 +59,7 @@ export default function Login() {
             name='email'
             placeholder='tucorreo@proveedor.com'
             onChange={(e) => setEmail(e.target.value)}
-            className='px-4 py-2 bg-zinc-200'
+            className='px-4 py-2 bg-zinc-200 rounded'
           />
           <button className='text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg px-5 py-2.5 text-center mr-2 mb-2 transition-all duration-500 ease-in-out font-bold hover:shadow-lg hover:shadow-orange-400'>
             Enviar

@@ -27,7 +27,7 @@ export default function ResolutionCard ({ resolution }) {
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
             fill='#FF3333'
-            className='w-5 h-w-5'>
+            className='w-5 h-5 rounded-full hover:w-6 hover:h-6 transition-all duration-300 ease-in-out'>
             <path
               fillRule='evenodd'
               d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z'
@@ -55,7 +55,7 @@ export default function ResolutionCard ({ resolution }) {
                 setEnabled(!enabled)
                 handleDone()
               } }
-              className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+              className="w-11 h-6 bg-gray-400 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
           </label>
         </div>
       </div>
