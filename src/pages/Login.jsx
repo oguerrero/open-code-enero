@@ -61,7 +61,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
             className='px-4 py-2 bg-zinc-200 rounded'
           />
-          <button className='text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg px-5 py-2.5 text-center mr-2 mb-2 transition-all duration-500 ease-in-out font-bold hover:shadow-lg hover:shadow-orange-400'>
+          <button className='text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg px-5 py-2.5 text-center mr-2 mb-2 transition-all duration-300 ease-in-out font-bold hover:shadow-lg hover:shadow-orange-400 shadow-lg shadow-orange-400/50'>
             Enviar
           </button>
         </form>
@@ -71,14 +71,14 @@ export default function Login() {
           Iniciar Sesión con Proveedores
         </h1>
         <button
-          className='rounded py-2 m-1 border-b-4 border-l-2 shadow-lg bg-zinc-700 border-zinc-800 text-white font-bold text-center hover:shadow-lg hover:shadow-zinc-600 transition-all duration-500 ease-in-out'
+          className='rounded py-2 m-1 border-b-4 border-l-2 shadow-lg shadow-zinc-600/40 bg-zinc-700 border-zinc-800 text-white font-bold text-center hover:shadow-lg hover:shadow-zinc-600 transition-all duration-500 ease-in-out'
           onClick={() => handleOAuth('github')}>
           <GithubIcon />
           Log in with Github
         </button>
         <button
           onClick={() => handleOAuth('google')}
-          className='rounded py-2 m-1 border-2 shadow-lg bg-white border-zinc-800 text-black font-bold text-center hover:shadow-lg hover:shadow-black transition-all duration-500 ease-in-out'>
+          className='rounded py-2 m-1 border-2 shadow-lg shadow-black/40 bg-white border-zinc-800 text-black font-bold text-center hover:shadow-lg hover:shadow-black transition-all duration-500 ease-in-out'>
           <GoogleIcon />
           Log in with Google
         </button>

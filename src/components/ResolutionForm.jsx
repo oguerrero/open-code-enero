@@ -47,7 +47,7 @@ export default function ResolutionForm() {
           <button
             disabled={adding}
             onClick={(e) => handleSubmit(e)}
-            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-indigo-700 rounded text-lg hover:shadow-purple-600 hover:shadow-lg hover:bg-purple-500'>
+            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-indigo-700 rounded text-lg hover:shadow-purple-600 hover:shadow-lg hover:bg-purple-500 shadow-lg shadow-purple-500/50'>
             {adding ? 'Añadiendo...' : 'Añadir'}
           </button>
         </div>
