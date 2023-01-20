@@ -29,25 +29,25 @@ export default function ResolutionForm() {
   }
 
   return (
-    <div className='w-full sm:max-w-xl transition-all duration-500 ease-in-out px-4 sm:px-0 pb-2'>
+    <div className='w-full px-4 pb-2 transition-all duration-500 ease-in-out sm:max-w-xl sm:px-0'>
       <div className='flex flex-row justify-between'>
         <div className='flex items-center w-full'>
           <input
             type='text'
             name='resolutionName'
             placeholder='Escribe tu proposito'
-            className='px-4 py-2 bg-zinc-200 w-11/12 dark:text-black rounded placeholder:italic '
+            className='w-11/12 px-4 py-2 rounded bg-zinc-200 dark:text-black placeholder:italic '
             onChange={(e) => setResolutionName(e.target.value)}
             value={resolutionName}
             required
             maxLength='25'
           />
         </div>
-        <div className='flex justify-center items-center my-2'>
+        <div className='flex items-center justify-center my-2'>
           <button
             disabled={adding}
             onClick={(e) => handleSubmit(e)}
-            className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-indigo-700 rounded text-lg hover:shadow-purple-600 hover:shadow-lg hover:bg-purple-500 shadow-lg shadow-purple-500/50'>
+            className='px-4 py-2 text-lg font-bold text-white transition-all duration-500 ease-in-out bg-indigo-700 rounded shadow-lg hover:shadow-purple-600 hover:shadow-lg hover:bg-purple-500 shadow-purple-500/50'>
             {adding ? 'Añadiendo...' : 'Añadir'}
           </button>
         </div>

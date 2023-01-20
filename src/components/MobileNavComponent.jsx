@@ -4,7 +4,7 @@ export default function MobileNavComponent({ location }) {
   const navigate = useNavigate()
 
   return (
-    <footer className='w-full h-16 bg-indigo-800 fixed left-0 bottom-0 flex justify-center items-center text-white text-2xl sm:hidden mt-2'>
+    <footer className='fixed bottom-0 left-0 flex items-center justify-center w-full h-16 mt-2 text-2xl text-white bg-indigo-800 sm:hidden'>
       <ul className='flex flex-row gap-12'>
         <li
           className={`cursor-pointer hover:bg-indigo-600 rounded-full p-2 transition-all duration-300 ease-in-out ${

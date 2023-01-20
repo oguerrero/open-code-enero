@@ -26,16 +26,16 @@ export default function Settings () {
       className={ `flex flex-col min-h-screen gap-4 py-4  ${darkMode ? 'dark bg-zinc-800 text-white' : ''
         }` }>
       <NavComponent />
-      <div className='flex flex-col justify-center items-center py-40 gap-8'>
+      <div className='flex flex-col items-center justify-center gap-8 py-40'>
         <a
           href='https://github.com/oguerrero/open-code-enero'
-          className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-black rounded hover:shadow-zinc-700 hover:shadow-lg hover:bg-zinc-700 shadow-lg shadow-zinc-700/50'>
+          className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-black rounded shadow-lg hover:shadow-zinc-700 hover:shadow-lg hover:bg-zinc-700 shadow-zinc-700/50'>
           <GithubIcon />
           Ver en Github
         </a>
         <button
           onClick={ () => supabase.auth.signOut() }
-          className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-red-600 rounded hover:shadow-orange-500 hover:shadow-lg hover:bg-orange-500 shadow-lg shadow-orange-500/50'>
+          className='px-4 py-2 font-bold text-white transition-all duration-500 ease-in-out bg-red-600 rounded shadow-lg hover:shadow-orange-500 hover:shadow-lg hover:bg-orange-500 shadow-orange-500/50'>
           Cerrar Sesión
         </button>
         <MobileNavComponent location='settings' />

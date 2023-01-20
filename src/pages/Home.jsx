@@ -27,7 +27,7 @@ export default function Home() {
         darkMode ? 'dark bg-zinc-800 text-white' : ''
       }`}>
       <NavComponent />
-      <h1 className='text-center text-2xl font-semibold'>
+      <h1 className='text-2xl font-semibold text-center'>
         Lista de Propositos
       </h1>
       <ResolutionList />

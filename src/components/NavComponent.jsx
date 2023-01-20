@@ -13,36 +13,36 @@ export default function NavComponent() {
   const handleToogle = () => toogleMode()
 
   return (
-    <nav className='flex flex-row gap-8 px-8 pb-4 shadow-lg justify-between '>
+    <nav className='flex flex-row justify-between gap-8 px-8 pb-4 shadow-lg '>
       <h1
-        className='text-xl font-bold text-start sm:text-3xl cursor-pointer'
+        className='text-xl font-bold cursor-pointer text-start sm:text-3xl'
         onClick={() => navigate('/')}>
         Resolutions-UI
       </h1>
       <div className='flex items-center sm:absolute sm:right-8 sm:gap-8'>
         <label
           onClick={() => handleToogle()}
-          className='text-center cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full transition-all duration-500 ease-in-out'>
+          className='text-center transition-all duration-500 ease-in-out rounded-full cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700'>
           {darkMode ? <MoonIcon /> : <SunIcon />}
         </label>
         <label
-          className='hidden sm:flex cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 px-4 py-2 rounded-full transition-all duration-500 ease-in-out'
+          className='hidden px-4 py-2 transition-all duration-500 ease-in-out rounded-full cursor-pointer sm:flex hover:bg-zinc-200 dark:hover:bg-zinc-700'
           onClick={() => navigate('/')}>
           Propositos
         </label>
         <label
-          className='hidden sm:flex cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 px-4 py-2 rounded-full transition-all duration-500 ease-in-out'
+          className='hidden px-4 py-2 transition-all duration-500 ease-in-out rounded-full cursor-pointer sm:flex hover:bg-zinc-200 dark:hover:bg-zinc-700'
           onClick={() => navigate('/progress')}>
           Progreso
         </label>
         <a
           href='https://github.com/oguerrero/open-code-enero'
-          className='hidden sm:flex cursor-pointer'>
+          className='hidden cursor-pointer sm:flex'>
           <GithubIcon />
         </a>
         <label
           onClick={() => supabase.auth.signOut()}
-          className='hidden sm:flex cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 p-2 rounded-full transition-all duration-500 ease-in-out'>
+          className='hidden p-2 transition-all duration-500 ease-in-out rounded-full cursor-pointer sm:flex hover:bg-zinc-200 dark:hover:bg-zinc-700'>
           <CerrarSesionIcon />
         </label>
       </div>

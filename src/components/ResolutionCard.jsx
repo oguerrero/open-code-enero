@@ -27,7 +27,7 @@ export default function ResolutionCard ({ resolution }) {
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
             fill='#FF3333'
-            className='w-5 h-5 rounded-full hover:w-6 hover:h-6 transition-all duration-300 ease-in-out'>
+            className='w-5 h-5 transition-all duration-300 ease-in-out rounded-full hover:w-6 hover:h-6'>
             <path
               fillRule='evenodd'
               d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z'
@@ -35,15 +35,15 @@ export default function ResolutionCard ({ resolution }) {
             />
           </svg>
         </button>
-        <div className='text-start justify-start items-start w-3/4'>
+        <div className='items-start justify-start w-3/4 text-start'>
           <h2
             className={ `text-start px-4 py-2 truncate font-semibold transition-all duration-500 ease-in-out ${enabled ? 'text-green-500 line-through italic' : 'text-black dark:text-white'
               }` }>
             { resolution.name }
           </h2>
         </div>
-        <div className='flex justify-center items-center my-2'>
-          <label className='inline-flex relative items-center mr-5 cursor-pointer'>
+        <div className='flex items-center justify-center my-2'>
+          <label className='relative inline-flex items-center mr-5 cursor-pointer'>
             <input
               type='checkbox'
               className='sr-only peer'

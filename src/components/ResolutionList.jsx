@@ -15,16 +15,16 @@ export default function ResolutionList() {
 
   if (resolutions.length === 0)
     return (
-      <div className='flex flex-col sm:px-40 justify-center items-center'>
+      <div className='flex flex-col items-center justify-center sm:px-40'>
         <ResolutionForm />
-        <p className='text-center text-xl'>
+        <p className='text-xl text-center'>
           No tienes ningun proposito todavia 😱<br /> Agrega uno para comenzar tu travesía.
         </p>
       </div>
     )
 
   return (
-    <div className='flex flex-col sm:px-40 justify-center items-center'>
+    <div className='flex flex-col items-center justify-center sm:px-40'>
       <ResolutionForm />
 
       {resolutions.map((resolution) => (
